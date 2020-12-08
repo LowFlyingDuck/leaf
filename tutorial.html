@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Usage of this API</h1>
+  <hr>
+  <ul style="list-style: none">
+    <li>
+      <h2>GET Users</h2>
+      <p><code>/users</code></p>
+      <p>returns json object with all users, their commands and data</p>
+    </li>
+    <li>
+      <h2>GET Command</h2>
+      <p><code>/get/:user</code></p>
+      <p>returns the command for a specific user</p>
+    </li>
+    <li>
+      <h2>POST Data</h2>
+      <p><code>/data/:user</code></p>
+      <p>post arbitrary data as a specific user</p>
+    </li>
+    <li>
+      <h2>POST Command</h2>
+      <p><code>/command</code></p>
+      <p>post a new object for a specific user</p>
+    </li>
+    <li>
+      <h2>POST File</h2>
+      <p><code>/file</code></p>
+      <p>post a file, that is saved on the server</p>
+    </li>
+    <li>
+      <h2>GET File</h2>
+      <p><code>/download</code></p>
+      <p>download the file, that was saved on the server with <i>POST FILE</i></p>
+    </li>
+  </ul>
+</body>
+</html>

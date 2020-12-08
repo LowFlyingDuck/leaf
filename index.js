@@ -5,6 +5,9 @@ const app = express();
 const users = {};
 
 app.use(express.json());
+app.get('/', (request, response) => {
+  response.sendFile(__dirname + '/tutorial.html');
+});
 app.get('/users', (request, response) => {
   response.end(JSON.stringify(users));
 });
