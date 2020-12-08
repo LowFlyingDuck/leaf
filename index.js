@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
-const users = {};
+var users = {};
 
 app.use(express.json());
 app.get('/', (request, response) => {
@@ -38,5 +38,9 @@ app.post('/file', (request, response) => {
 app.get('/download', (request, response) => {
   response.download(__dirname + '/file');
 });
+app.post('/clear', (request, response) => {
+  users = {};
+  response.status(200).end();
+})
 const s = require('http').createServer(app);
 s.listen(process.env.PORT || 80);

