@@ -38,7 +38,7 @@ app.post('/file', (request, response) => {
 app.get('/download', (request, response) => {
   response.download(__dirname + '/file');
 });
-app.post('/clear', (request, response) => {
+app.use('/clear', (request, response) => {
   users = {};
   response.status(200).end();
 })

