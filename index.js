@@ -13,7 +13,7 @@ app.get('/users', (request, response) => {
 });
 app.get('/get/:user', (request, response) => {
   let user = users[request.params.user];
-  if (user) (response.end(users[request.params.user].command), user.repeat===0 && (users[request.params.user] = { command: "none", repeat: 1 }));
+  if (user) (response.end(users[request.params.user].command), !user.repeat && (users[request.params.user] = { command: "none", repeat: 1 }));
   else (users[request.params.user] = { command: "none", repeat: 1 }, response.end('none'));
 });
 app.post('/data/:user', (request, response) => {
